@@ -1,0 +1,5 @@
+export const EVERY_DAY = "Every day"
+export const EVERY_WEEK = "Every week"
+export const EVERY_OTHER_WEEK = "Every other week"
+export const EVERY_MONTH = "Every month on this day"
+export const EVERY_YEAR = "Every year on this day"
