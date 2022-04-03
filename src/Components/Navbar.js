@@ -6,9 +6,6 @@ import {useNavigate} from "react-router-dom";
 const Navbar = () => {
     let Links =[
         {name:"DASHBOARD", link:"/dashboard"},
-        {name:"SERVICES", link:"/"},
-        {name:"ABOUT", link:"/"},
-        {name:"CONTACT", link:"/"},
     ];
     const navigate = useNavigate();
     const isLoggedIn = AuthLogin();
@@ -27,7 +24,7 @@ const Navbar = () => {
         <div className='shadow-md z-50 bg-indigo-500 h-18 fixed w-full fixed top-0 left-0'>
             <div className='md:flex items-center justify-between py-4 md:px-10 px-7'>
                 <div className='font-serif font-bold text-3xl cursor-pointer flex items-center text-white'>
-                    BaseCamp
+                    GaussB Camp
                 </div>
 
                 <div onClick={()=>setOpen(!open)} className='text-2xl absolute text-white right-8 top-5 cursor-pointer h-7 w-7 md:hidden'>
