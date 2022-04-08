@@ -14,7 +14,7 @@ const ShowComment = (props) =>{
     })
     function handleDelete(e){
         e.preventDefault();
-        axios.delete(`http://localhost:3000/users/${userId}/tasks/${taskId}/comments/${commentId}`, {headers: {"Authorization": `Bearer ${jwtToken}`}})
+        axios.delete(`http://35.193.87.83:3000/users/${userId}/tasks/${taskId}/comments/${commentId}`, {headers: {"Authorization": `Bearer ${jwtToken}`}})
             .then((res)=>{
                 window.location.reload()
             })
