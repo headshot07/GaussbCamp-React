@@ -17,7 +17,7 @@ const DropDownUsers = (props) =>{
 
     const jwtToken = localStorage.getItem('jwtToken')
     function fetchUsers(){
-        axios.get("http://localhost:3000/users",{ headers: { "Authorization": `Bearer ${jwtToken}`} })
+        axios.get("http://35.193.87.83:3000/users",{ headers: { "Authorization": `Bearer ${jwtToken}`} })
             .then((res)=>{
                 console.log(res)
                 const received_users = res.data.users.data
