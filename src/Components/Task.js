@@ -49,7 +49,7 @@ const Task = () =>{
 
     useEffect(()=>{
         window.scrollTo(0, 0);
-        axios.get(`http://localhost:3000/api/users/${userId}/tasks/${taskId}`, { headers: { "Authorization": `Bearer ${jwtToken}`} })
+        axios.get(`http://tasks.gaussb.io/api/users/${userId}/tasks/${taskId}`, { headers: { "Authorization": `Bearer ${jwtToken}`} })
             .then((res)=>{
                 const { title, body, assignee, creator, status, due_date, created_at, recurring_code } = res.data.task.data.attributes
                 repeatFrequency(created_at, recurring_code)
@@ -68,7 +68,7 @@ const Task = () =>{
             })
 
 
-        axios.get(`http://localhost:3000/api/users/${userId}/tasks/${taskId}/comments`, { headers: { "Authorization": `Bearer ${jwtToken}`} })
+        axios.get(`http://tasks.gaussb.io/api/users/${userId}/tasks/${taskId}/comments`, { headers: { "Authorization": `Bearer ${jwtToken}`} })
             .then((res)=>{
                 const comments = res.data.comments.data
                 console.log(res.data.comments)

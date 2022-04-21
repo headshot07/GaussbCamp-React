@@ -12,7 +12,7 @@ const Login = () => {
 
     function handleSubmit(e){
         e.preventDefault();
-        axios.post('http://localhost:3000/api/sessions', { user: { email: loginState.email, password: loginState.password } }, { withCredentials: true } )
+        axios.post('http://tasks.gaussb.io/api/sessions', { user: { email: loginState.email, password: loginState.password } }, { withCredentials: true } )
             .then((res)=>{
                 const userId = res.data.user.data.id
                 localStorage.setItem('userId', userId)

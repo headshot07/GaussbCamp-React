@@ -8,7 +8,7 @@ const CreateComment = (props) => {
 
     function handleSubmit(e){
         e.preventDefault();
-        axios.post(`http://localhost:3000/api/users/${userId}/tasks/${taskId}/comments`, { comment:{ body: comment, task_id:taskId, user_id: userId }},
+        axios.post(`http://tasks.gaussb.io/api/users/${userId}/tasks/${taskId}/comments`, { comment:{ body: comment, task_id:taskId, user_id: userId }},
             { headers: { "Authorization": `Bearer ${jwtToken}`} } )
             .then((res)=>{
                 //console.log('Success')
