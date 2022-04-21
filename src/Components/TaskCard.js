@@ -35,7 +35,7 @@ const TaskCard = (props) =>{
     function handleStatus(e) {
         e.preventDefault();
         if (userId == assignee_id) {
-            axios.post(`http://35.193.87.83:3000/tasks/${taskId}/edit`, {status: !taskStatus}, {headers: {"Authorization": `Bearer ${jwtToken}`}})
+            axios.post(`http://localhost:3000/api/tasks/${taskId}/edit`, {status: !taskStatus}, {headers: {"Authorization": `Bearer ${jwtToken}`}})
                 .then((res) => {
                     console.log('Done')
                 })
@@ -52,7 +52,7 @@ const TaskCard = (props) =>{
 
     function handleDelete(e){
         e.preventDefault()
-        axios.delete(`http://35.193.87.83:3000/users/${userId}/tasks/${taskId}`, { headers: { "Authorization": `Bearer ${jwtToken}`} })
+        axios.delete(`http://localhost:3000/api/users/${userId}/tasks/${taskId}`, { headers: { "Authorization": `Bearer ${jwtToken}`} })
             .then((res)=>{
                 console.log('Sanjay')
             })

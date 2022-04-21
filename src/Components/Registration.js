@@ -16,7 +16,7 @@ const Registration = () => {
 
     function handleSubmit(e){
         e.preventDefault();
-        axios.post('http://35.193.87.83:3000/users', { user: { first_name: registrationState.firstName, last_name: registrationState.lastName,
+        axios.post('http://localhost:3000/api/users', { user: { first_name: registrationState.firstName, last_name: registrationState.lastName,
                 email: registrationState.email, password: registrationState.password } }, { withCredentials: true } )
             .then((res)=>{
                 navigate('/')

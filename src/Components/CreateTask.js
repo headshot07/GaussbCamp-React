@@ -18,7 +18,7 @@ const CreateTask = (props) =>{
     function handleSubmit(e){
         e.preventDefault()
         if(formState.assigneeId){
-            axios.post(`http://35.193.87.83:3000/users/${userId}/tasks`, { task: {title: formState.title, body: formState.body, assignee_id: formState.assigneeId, creator_id: userId, due_date: formState.due_date, recurring_code: formState.recurring_code}},
+            axios.post(`http://localhost:3000/api/users/${userId}/tasks`, { task: {title: formState.title, body: formState.body, assignee_id: formState.assigneeId, creator_id: userId, due_date: formState.due_date, recurring_code: formState.recurring_code}},
                 { headers: { "Authorization": `Bearer ${jwtToken}`} })
                 .then((res)=>{
                     navigate('/dashboard')

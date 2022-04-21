@@ -11,7 +11,7 @@ const Dashboard = () =>{
 
     function fetchTasks() {
         const jwtToken = localStorage.getItem('jwtToken')
-        axios.get(`http://35.193.87.83:3000/users/${userId}/tasks`, { headers: { "Authorization": `Bearer ${jwtToken}`} } )
+        axios.get(`http://localhost:3000/api/users/${userId}/tasks`, { headers: { "Authorization": `Bearer ${jwtToken}`} } )
             .then((res)=>{
                 const createdTasks = res.data.created_tasks.data
                 const assignedTasks = res.data.assigned_tasks.data
