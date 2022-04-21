@@ -50,7 +50,7 @@ const CreateTask = (props) =>{
 
                 <div className="flex flex-col h-screen">
                     <card className="w-full h-auto py-8 bg-slate-50 rounded-2xl border shadow px-16 delay-75 duration-100">
-                            <div className="max-w-md w-full space-y-8">
+                            <div className="w-full space-y-8">
                                 {
                                     error.length > 0 &&
                                     <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">

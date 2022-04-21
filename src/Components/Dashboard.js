@@ -70,9 +70,10 @@ const Dashboard = () =>{
                                 <div className="grid grid-cols-2 w-full gap-8 mt-4 px-4">
                                     {
                                         createdTasks.map((task)=>{
-                                            return(
-                                                <TaskCard title={task.attributes.title} body={task.attributes.body} taskId={task.id} status={task.attributes.status} assignee_id={task.attributes.assignee.id} creator_id={task.attributes.creator.id}  due_date={task.attributes.due_date}/>
-                                            )
+                                            if(task.attributes.assignee.id !== task.attributes.creator.id)
+                                                return(
+                                                    <TaskCard title={task.attributes.title} body={task.attributes.body} taskId={task.id} status={task.attributes.status} assignee_id={task.attributes.assignee.id} creator_id={task.attributes.creator.id}  due_date={task.attributes.due_date}/>
+                                                )
                                         })
                                     }
                                 </div>
