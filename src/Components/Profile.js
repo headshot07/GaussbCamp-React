@@ -14,7 +14,7 @@ const Profile = () => {
 
     useEffect(()=>{
         window.scrollTo(0, 0);
-        axios.get(`http://tasks.gaussb.io/api/users/${userId}`,{ headers: { "Authorization": `Bearer ${jwtToken}`} })
+        axios.get(`https://tasks.gaussb.io/api/users/${userId}`,{ headers: { "Authorization": `Bearer ${jwtToken}`} })
             .then((res)=>{
                 const user = res.data.user.data.attributes
                 setUser({...user, user})
@@ -26,7 +26,7 @@ const Profile = () => {
 
     function handleUpdate(e){
         e.preventDefault()
-        axios.put(`http://tasks.gaussb.io/api/users/${userId}`, { user: { first_name: user.first_name, last_name: user.last_name, email: user.email}},
+        axios.put(`https://tasks.gaussb.io/api/users/${userId}`, { user: { first_name: user.first_name, last_name: user.last_name, email: user.email}},
             { headers: { "Authorization": `Bearer ${jwtToken}`} })
             .then((res)=>{
                 const user = res.data.user.data.attributes

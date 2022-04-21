@@ -12,11 +12,8 @@ function checkLastWeekDay(){
 }
 
 function getWeekCode(){
-    const ddd = (new Date().getDate()) / 7
-    console.log(ddd)
-    const ttt = Math.ceil((new Date().getDate()) / 7)
-    console.log(ttt)
-    return ttt
+    const weekCode = Math.ceil((new Date().getDate()) / 7)
+    return weekCode
 }
 function getWeekDay(weekDayCode){
     const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -46,7 +43,7 @@ const DropDownRecurringFrequency = (props) => {
         }
         const weekCode = getWeekCode();
         const weekDayCode = todayDate.getDay()
-        console.log('Hello'+weekCode + ' ' + weekDayCode)
+        //console.log(weekCode + ' ' + weekDayCode)
         recurringCode = parseInt(weekCode.toString() + weekDayCode.toString())
         setOptions((options) => [
             ...options,

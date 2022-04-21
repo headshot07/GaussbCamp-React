@@ -18,7 +18,7 @@ const CreateTask = (props) =>{
     function handleSubmit(e){
         e.preventDefault()
         if(formState.assigneeId){
-            axios.post(`http://tasks.gaussb.io/api/users/${userId}/tasks`, { task: {title: formState.title, body: formState.body, assignee_id: formState.assigneeId, creator_id: userId, due_date: formState.due_date, recurring_code: formState.recurring_code}},
+            axios.post(`https://tasks.gaussb.io/api/users/${userId}/tasks`, { task: {title: formState.title, body: formState.body, assignee_id: formState.assigneeId, creator_id: userId, due_date: formState.due_date, recurring_code: formState.recurring_code}},
                 { headers: { "Authorization": `Bearer ${jwtToken}`} })
                 .then((res)=>{
                     navigate('/dashboard')
@@ -35,7 +35,7 @@ const CreateTask = (props) =>{
     }
     function handleChange(e){
         e.preventDefault()
-        console.log(e.target.value)
+        //console.log(e.target.value)
         setFormState({
             ...formState,
             [e.target.name]: e.target.value

@@ -35,9 +35,9 @@ const TaskCard = (props) =>{
     function handleStatus(e) {
         e.preventDefault();
         if (userId == assignee_id) {
-            axios.post(`http://tasks.gaussb.io/api/tasks/${taskId}/edit`, {status: !taskStatus}, {headers: {"Authorization": `Bearer ${jwtToken}`}})
+            axios.post(`https://tasks.gaussb.io/api/tasks/${taskId}/edit`, {status: !taskStatus}, {headers: {"Authorization": `Bearer ${jwtToken}`}})
                 .then((res) => {
-                    console.log('Done')
+                    //console.log('Done')
                 })
                 .catch((err) => {
                     console.log(err)
@@ -52,12 +52,11 @@ const TaskCard = (props) =>{
 
     function handleDelete(e){
         e.preventDefault()
-        axios.delete(`http://tasks.gaussb.io/api/users/${userId}/tasks/${taskId}`, { headers: { "Authorization": `Bearer ${jwtToken}`} })
+        axios.delete(`https://tasks.gaussb.io/api/users/${userId}/tasks/${taskId}`, { headers: { "Authorization": `Bearer ${jwtToken}`} })
             .then((res)=>{
-                console.log('Sanjay')
+
             })
             .catch((err)=>{
-                console.log('Error')
                 console.log(err)
             })
         window.location.reload()

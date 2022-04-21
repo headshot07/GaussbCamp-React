@@ -11,7 +11,7 @@ const Dashboard = () =>{
 
     function fetchTasks() {
         const jwtToken = localStorage.getItem('jwtToken')
-        axios.get(`http://tasks.gaussb.io/api/users/${userId}/tasks`, { headers: { "Authorization": `Bearer ${jwtToken}`} } )
+        axios.get(`https://tasks.gaussb.io/api/users/${userId}/tasks`, { headers: { "Authorization": `Bearer ${jwtToken}`} } )
             .then((res)=>{
                 const createdTasks = res.data.created_tasks.data
                 const assignedTasks = res.data.assigned_tasks.data
