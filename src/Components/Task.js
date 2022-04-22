@@ -3,6 +3,7 @@ import axios from "axios";
 import {useParams} from "react-router-dom";
 import ShowComment from "./ShowComment";
 import CreateComment from "./CreateComment";
+import {useNavigate} from "react-router-dom";
 
 const Task = () =>{
     const [taskDetails, setTaskDetails] = useState({
@@ -15,6 +16,7 @@ const Task = () =>{
     })
     const [comments, setComments] = useState([])
     const params = useParams()
+    const navigate = useNavigate();
     const taskId = params.id
     const userId = localStorage.getItem('userId')
     const jwtToken = localStorage.getItem('jwtToken')
@@ -64,9 +66,9 @@ const Task = () =>{
                 })
             })
             .catch((err)=>{
+                navigate('/pageNotFound')
                 console.log(err)
             })
-
 
         axios.get(`https://tasks.gaussb.io/api/users/${userId}/tasks/${taskId}/comments`, { headers: { "Authorization": `Bearer ${jwtToken}`} })
             .then((res)=>{

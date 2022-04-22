@@ -18,7 +18,7 @@ const Navbar = () => {
     }
     function handleProfile(e){
         e.preventDefault()
-        navigate(`/users/${userId}`)
+        navigate(`/users/profile`)
     }
     return (
         <div className='shadow-md z-50 bg-indigo-500 h-18 fixed w-full fixed top-0 left-0'>

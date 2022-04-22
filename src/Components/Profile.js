@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import {LockClosedIcon, MenuIcon, UserAddIcon, XCircleIcon} from '@heroicons/react/solid'
 import axios from "axios";
 import {PencilAltIcon} from "@heroicons/react/solid";
 
@@ -11,6 +12,7 @@ const Profile = () => {
     })
     const [editStatus, setEditStatus] = useState(false )
     const jwtToken = localStorage.getItem('jwtToken')
+    const [error, setError] = useState('')
 
     useEffect(()=>{
         window.scrollTo(0, 0);
@@ -26,6 +28,13 @@ const Profile = () => {
 
     function handleUpdate(e){
         e.preventDefault()
+        if(user.first_name === ""){
+            setError( 'First Name Can\'t Be Empty')
+            setTimeout(()=>{
+                setError('')
+            },3000)
+            return;
+        }
         axios.put(`https://tasks.gaussb.io/api/users/${userId}`, { user: { first_name: user.first_name, last_name: user.last_name, email: user.email}},
             { headers: { "Authorization": `Bearer ${jwtToken}`} })
             .then((res)=>{
@@ -55,6 +64,17 @@ const Profile = () => {
                             </div>
 
                             <div className="flex flex-col h-screen">
+                                {
+                                    error.length > 0 &&
+                                    <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 mb-8 rounded relative" role="alert">
+                                        <strong className="font-bold ml-50%">{error}</strong>
+                                        <span className="absolute top-0 right-5 px-4 py-3">
+                                            <div onClick={()=>setError('')} className='text-2xl absolute text-red-400 cursor-pointer h-7 w-7'>
+                                                <XCircleIcon />
+                                            </div>
+                                        </span>
+                                    </div>
+                                }
                                 <card
                                     className="w-full h-auto mb-3 bg-slate-50 rounded-2xl border shadow py-4 px-8 delay-75 duration-100">
                                     <div className="w-full flex flex-rows items-center justify-center">

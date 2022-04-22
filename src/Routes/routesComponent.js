@@ -10,6 +10,7 @@ import CreateTask from "../Components/CreateTask";
 import Profile from "../Components/Profile";
 import Alert from "../Components/Alert";
 import Footer from "../Components/Footer";
+import NotFound from "../Components/NotFound";
 
 const RoutesComponent = () =>{
     return(
@@ -19,10 +20,12 @@ const RoutesComponent = () =>{
                 <Routes>
                     <Route exact path={'/'} element={<Login />} />
                     <Route exact path={'/register'} element={<Registration />} />
+                    <Route exact path={'/pageNotFound'} element={<NotFound />} />
                     <Route exact path={'/dashboard'} element={<ProtectedRoutes component={<Dashboard />} />} />
                     <Route exact path={'/task/:id'} element={<ProtectedRoutes component={<Task />} />} />
                     <Route exact path={'/tasks/addTask'} element={<ProtectedRoutes component={<CreateTask />} />} />
-                    <Route exact path={'/users/:id'} element={<ProtectedRoutes component={<Profile />} />} />
+                    <Route exact path={'/users/profile'} element={<ProtectedRoutes component={<Profile />} />} />
+                    <Route exact path={'*'} element={<NotFound />} />
                 </Routes>
                 <Footer />
             </Router>

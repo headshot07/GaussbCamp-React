@@ -47,7 +47,7 @@ const Dashboard = () =>{
                                         <h2 className="text-center text-xl font-bold text-white">To-Dos</h2>
                                     </div>
                                 </div>
-                                <div className="grid grid-cols-2 w-full gap-8 mt-4 px-4">
+                                <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 w-full gap-8 mt-4 px-4">
                                     {
                                         assignedTasks.map((task)=>{
                                             return(
@@ -67,7 +67,7 @@ const Dashboard = () =>{
                                         <h2 className="text-center text-xl font-bold text-white">Created Tasks</h2>
                                     </div>
                                 </div>
-                                <div className="grid grid-cols-2 w-full gap-8 mt-4 px-4">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 w-full gap-8 mt-4 px-4">
                                     {
                                         createdTasks.map((task)=>{
                                             if(task.attributes.assignee.id !== task.attributes.creator.id)
